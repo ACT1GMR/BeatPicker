@@ -1,0 +1,270 @@
+.beatpicker {
+    box-shadow: 0 3px 2px rgb(238, 238, 238);
+    -moz-box-shadow: 0 3px 2px rgb(238, 238, 238);
+    -o-box-shadow: 0 3px 2px rgb(238, 238, 238);
+    -webkit-box-shadow: 0 3px 2px rgb(238, 238, 238);
+    background-color: rgb(248, 248, 248);
+    color: rgb(55, 55, 55);
+    font-family: Trebuchet MS;
+    font-size: 13px;
+    height: auto;
+    min-width: 200px;
+    padding: 4px;
+    position: absolute;
+    width: 250px;
+    border: 1px solid rgb(225, 225, 225);
+    border-bottom: 3px solid rgb(207, 207, 207);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline-style: none; /*IE*/
+    z-index: 9999;
+}
+
+.beatpicker .button {
+    background-color: rgb(57, 148, 197);
+    border: medium none;
+    color: rgb(235, 235, 235);
+    cursor: pointer;
+    display: inline-block;
+    font: bold 12px/2 arial,tahoma,sans-serif;
+    margin: 0 2px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.beatpicker .button:hover {
+    background-color: rgb(37, 126, 174);
+}
+
+.beatpicker-inputnode {
+    background-position: right center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.beatpicker ul {
+    margin: 0;
+    padding: 0;
+}
+.beatpicker ul.cell-parent, .beatpicker li.cell {
+    list-style: none outside none;
+}
+
+.beatpicker ul.cell-parent {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.beatpicker li.cell {
+    float: left;
+    margin: 1%;
+    padding: 2%;
+    text-align: center;
+    width: 8%;
+    white-space: nowrap;
+}
+
+.beatpicker .days .cell-parent li.cell {
+    cursor: pointer;
+    transition: background-color 0.09s linear 0s;
+}
+
+.beatpicker .days .cell-parent li.cell.cell-months, .days .cell-parent li.cell.cell-years {
+    padding: 7% 5.5%;
+    width: 12%;
+}
+
+.beatpicker .days .cell-parent li.cell:hover {
+    background-color: rgb(211, 93, 93);
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold;
+}
+
+.beatpicker .main-nav {
+    background-color: rgb(65, 169, 204);
+    height: 30px;
+    margin: 0 auto;
+    padding: 2px;
+    position: relative;
+}
+
+.beatpicker .main-nav .button {
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 2px 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 14%;
+}
+
+.beatpicker .main-nav .button:hover {
+    background-color: rgb(37, 126, 174);
+}
+
+.beatpicker .main-nav .button.next {
+    right: 0;
+}
+
+.beatpicker .main-nav .button.prev {
+    left: 0;
+}
+
+.beatpicker .days .cell-parent li.cell.date-disabled.between-range {
+    background-color: rgb(242, 223, 160);
+    color: rgb(75, 75, 75);
+}
+
+.beatpicker .days .cell-parent li.cell.date-disabled:hover {
+    background-color: rgb(194, 194, 194);
+    color: rgb(255, 255, 255);
+}
+
+.beatpicker .days .cell-parent li.cell.not-notable {
+    color: rgb(171, 171, 171);
+}
+
+.beatpicker .days .cell-parent li.cell.date-disabled, .days .cell-parent li.cell.not-notable.date-disabled {
+    color: rgb(198, 198, 198);
+}
+
+.beatpicker .days .cell.notable-today {
+    background-color: rgb(65, 132, 169);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.beatpicker .days .cell-parent li.cell.not-notable.notable-today:hover {
+    color: rgb(157, 157, 157) !important;
+}
+
+.beatpicker .days .cell-parent li.cell.not-notable.notable-today {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px rgb(71, 117, 142) inset;
+    color: rgb(157, 157, 157);
+}
+
+.beatpicker .days .cell-parent li.cell.selected-date {
+    background-color: rgb(247, 152, 81);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.beatpicker .days .cell-parent li.cell.selected-date.notable-today {
+    box-shadow: 0 0 0 2px rgb(208, 132, 81) inset;
+}
+
+.beatpicker .days .cell-parent li.cell.between-range {
+    background-color: rgb(239, 208, 105);
+}
+
+.beatpicker .days .cell-parent li.cell.between-range:hover {
+    background-color: rgb(211, 93, 93);
+}
+
+.beatpicker .days .cell.notable-today.between-range {
+    box-shadow: 0 0 0 2px rgb(65, 132, 169) inset;
+    color: rgb(61, 61, 61);
+}
+
+.beatpicker .days .cell-parent li.cell.between-range.not-notable {
+    color: rgb(41, 41, 41);
+}
+
+.beatpicker .main-nav .current-indicator {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-family: arial;
+    font-size: 12px;
+    left: 14%;
+    width: 72%;
+}
+
+.beatpicker .main-nav .current-indicator:hover {
+    background-color: rgb(187, 80, 80);
+}
+
+.beatpicker .footer {
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid rgb(225, 225, 225);
+    display: inline-block;
+    margin-bottom: -4px;
+    margin-left: -4px;
+    padding: 0 4px 4px;
+    position: relative;
+    width: 100%;
+}
+
+.beatpicker .footer input.date-input[type="text"] {
+    float: left;
+    height: 23px;
+    margin: 0 -1px 0 0;
+    padding: 0;
+    width: 81%;
+}
+
+.beatpicker input[type="text"] {
+    border: 1px solid rgb(210, 210, 210);
+    color: rgb(115, 115, 115);
+    font-family: inherit;
+    margin: 0 1px;
+    padding: 4px;
+}
+
+.beatpicker .footer .button.today, .beatpicker .footer .button.date-input-button {
+    height: 25px;
+    margin-top: 5px;
+    padding: 0;
+    width: 25%;
+}
+
+.beatpicker .goto-date-parent.goto-date-container {
+    float: right;
+    margin-top: 5px;
+    width: 65%;
+}
+
+.beatpicker .footer .button.date-input-button {
+    float: left;
+    margin: 0;
+    width: 15%;
+}
+
+.beatpicker .footer .button.today {
+    margin-left: 2%;
+}
+
+.beatpicker input[type="text"]::-moz-placeholder {
+    color: rgb(149, 149, 149);
+    font-size: 74%;
+    opacity: 1;
+    text-transform: lowercase;
+}
+
+.beatpicker input[type="text"]::-webkit-input-placeholder {
+    color: rgb(149, 149, 149);
+    font-size: 74%;
+    opacity: 1;
+    text-transform: lowercase;
+}
+
+.beatpicker input[type="text"]:-moz-placeholder {
+    color: rgb(149, 149, 149);
+    font-size: 74%;
+    opacity: 1;
+    text-transform: lowercase;
+}
+
+.beatpicker input[type="text"]:-ms-input-placeholder {
+    color: rgb(149, 149, 149);
+    font-size: 74%;
+    opacity: 1;
+    text-transform: lowercase;
+}
