@@ -10,4 +10,4 @@ Simple and powerful date picker widget for jQuery
 ## Links
 * [Latest info](http://act1gmr.github.io/BeatPicker/)
 * [Live demo](http://act1gmr.github.io/BeatPicker/demos.html)
-* [Docs](http://act1gmr.github.io/BeatPicker/demos.html)
+* [Docs](http://act1gmr.github.io/BeatPicker/docs.html)
