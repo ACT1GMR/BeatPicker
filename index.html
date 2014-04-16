@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>BeatPicker v0.1.0 - jQuery date picker</title>
     <link rel="stylesheet" href="documents/css/reset.css"/>
@@ -46,28 +46,50 @@
 
             box-shadow: 0 35px 35px rgba(43, 43, 43, 0.66);
         }
-
         .feature {
             float: left;
+            position: relative;
+            top: 29px;
         }
-
-        .feature ul {
-            padding: 48px;
-        }
-
-        .feature li {
+        .feature p.nameof {
             color: #fff;
-            font: 72px Josefin Slab, tahoma, sans-serif;
+            font: bold 50px josefin slab,sans-serif;
+            left: 38px;
+            position: absolute;
+            top: 0;
         }
+        .feature p.nameof span.name.one {
+            color: #166980;
+            text-shadow: 1px 1px 0 #5db8c8;
+        }
+        .feature p.nameof span.name.two {
+            color: #f8f8f8;
+            text-shadow: 1px 1px 0 #767676;
+        }
+        .feature p.nameof span.name {
+            font-size: 108px;
+        }
+        .feature ul {
+            padding: 109px 0 8px 42px;
+        }
+
 
         .feature li.one {
             color: #f8f8f8;
             text-shadow: 1px 1px 0 #767676;
         }
-
+        .feature li {
+            color: #fff;
+            display: inline-block;
+            font: bold 58px Josefin Slab,tahoma,sans-serif;
+        }
+        .feature li.one {
+            color: #f8f8f8;
+            text-shadow: 1px 1px 0 #767676;
+        }
         .feature li.two {
             color: #64c4de;
-            font-size: 147px;
+            font-size: 92px;
         }
 
         .feature li.three {
@@ -75,15 +97,9 @@
             text-shadow: 1px 1px 0 #5db8c8;
         }
 
-        .feature li {
-            color: #fff;
-            display: inline-block;
-            font: bold 80px Josefin Slab, tahoma, sans-serif;
-        }
-
         .feature .code-prev {
-            margin-left: 52px;
-            margin-right: 50px;
+            margin-left: 44px;
+            margin-right: -1px;
             opacity: 0.84;
             text-align: center;
         }
@@ -235,6 +251,7 @@
     <div class="marquee">
         <div class="overlay">
             <div class="feature">
+               <p class="nameof"> <span class="name one">Beat</span><span class="name two">Picker</span></p>
                 <ul>
                     <li class="one">Simple</li>
                     <li class="two">&</li>
