@@ -8,6 +8,6 @@ Simple and powerful date picker widget for jQuery
 * BeatPicker.min.css
 
 ## Links
-* [Latest info](http://act1gmr.github.io/BeatPicker/)
+* [Download page](http://act1gmr.github.io/BeatPicker/)
 * [Live demo](http://act1gmr.github.io/BeatPicker/demos.html)
 * [Docs](http://act1gmr.github.io/BeatPicker/docs.html)
