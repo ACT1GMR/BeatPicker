@@ -6,16 +6,22 @@ body {
 body, html {
     min-height: 100%;
 }
-.introduction{
-    font: 16px arial,tahoma,sans-serif;
-    color: #7A7070;
-    margin: 15px;
+
+.introduction {
+    color: #7a7070;
+    font: 16px/1.5 Verdana,tahoma,sans-serif;
+    margin: 14px;
     padding: 7px;
 }
 .introduction h4 {
     font-size: 42px;
     color: #8D8A8A;
     font-weight: bold;
+}
+
+.introduction b {
+    color: #6d6362;
+    font-size: 20px;
 }
 
 .demo-header {

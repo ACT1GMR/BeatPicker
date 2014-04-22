@@ -1445,6 +1445,12 @@ _parseJsonEngine = function (item, words) {
     return typeof item === "string" ? JSON.parse(item.replace(/'/g, '"')) : item;
 
 };
-$(document).ready(function () {
-    initializeBitCal();
-});
+try{
+    $(document).ready(function () {
+        initializeBitCal();
+    });
+    
+}catch(e){
+    if(module)
+        module.exports=BeatPicker.prototype;
+}

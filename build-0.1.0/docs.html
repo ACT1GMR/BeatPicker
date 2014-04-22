@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>BeatPicker docs</title>
-    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
     <script src="documents/js/BeatPicker.def.min.js"></script>
     <script src="documents/js/TableOfContents.min.js"></script>
     <link rel="stylesheet" href="documents/css/prism.css"/>
@@ -24,7 +24,8 @@
 
     <div class="description">
         <h3>Thanks to use BeatPicker</h3>
-        <p>You can see online demos <a href="demos.html">here</a> </p>
+        <p>You can see online demos <a href="demos.html">here</a>.Download latest version <a href="https://github.com/ACT1GMR/BeatPicker/zipball/0.1.0">here</a>.<b>Browsers support and infos <a href="/BeatPicker">here</a></b></p>
+
         <div class="dependencies">
             <p>Dependencies:</p>
             <ul>
@@ -99,11 +100,11 @@ var instance = new BeatPicker(options)
 
     <div class="declarative-box position">
         <h2 class="title">Disabling rule:</h2>
-        You can apply <a href="#options/disablingRules">disabling rules</a> using this format.multiple rule using comma seprated object pass.
+        You can apply <a href="#options/disablingRules">disabling rules</a> using this format.multiple rule using comma separated object pass.
 
     <pre class="code-prev">
 <code class="language-markup">
-&lt;input type="text" data-beatpicker="true" data-beatpicker-disable="{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}"]">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-disable="{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}">
 </code>
 </pre>
     </div>
@@ -426,9 +427,9 @@ selectionRule: {
         By default if you want select between some range and on that range you defined a disable rule that make at least one date to getting disable
         this range cannot be apply to input eg:
         <p class="example">
-            Assume : 2014-01-05 is disable
+            Assume : from : 2014-01-02 , to:2014-01-04 is disable<br>
             from:2014-01-01 , to:2014-01-07
-            is invalid range because of applied disabling rule.
+            is invalid range because of applied disabling rule.you can override this behaviour by set this field to true.
         </p>
     </div>
 
@@ -711,7 +712,7 @@ labels: {
             <p>Note that when you use this format you have to aware of disabling priority what that means is<br>
                 if you have a rule that interfere with another rule you have to know that first rule have high priority to apply here is an example:
                 Assume :  from:2014-01-01 , to : 2014-01-10 && from : 2014-01-05 , to : 2014-01-08 is your disabling rule<br>
-                what you have to expect is that your first rule (from : 2014-01-01 , to : 2014-01-10) have higher priority that second rule(from : 2014-01-05 , to : 2014-01-08)<br>
+                what you have to expect is that your first rule (from : 2014-01-01 , to : 2014-01-10) have higher priority than second rule(from : 2014-01-05 , to : 2014-01-08)<br>
                 then you have disable date from : 2014-01-01 , to : 2014-01-10
             </p>
         </li>
