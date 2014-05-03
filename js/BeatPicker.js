@@ -452,7 +452,7 @@ BeatPicker.prototype = {
                     return item !== self && !item.view.alwaysVisible
                 });
                 self.forEach(filter, function (index, item) {
-                    !item.isHide() && item._calendarMainNode.hide();
+                    !item.isHide() && item.hide();
                 }, self);
                 self.show(e);
             }
