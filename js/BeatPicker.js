@@ -595,7 +595,7 @@ BeatPicker.prototype = {
     //**********************************************//
     //**********************************************//
     _dateSelect: function (e) {
-        var elem = $(e.originalEvent.currentTarget);
+        var elem = $(e.currentTarget || e.originalEvent.currentTarget);
         var dateObj = elem.data("date");
         var date = this._dateFormatting(dateObj);
         var optionToNotify = {};
@@ -1321,6 +1321,17 @@ BeatPicker.prototype = {
         if (!isNaN(Date.parse(date)))
             this._updateDateMatricesExactDate(this._isDate(date) ? date : new Date(Date.parse(date)))
     },
+    selectDate: function (date) {
+
+        if (!isNaN(Date.parse(date))) {
+            var dt = this._isDate(date) ? date : new Date(Date.parse(date));
+            this._updateDateMatricesExactDate(dt);
+            if (this._dateRows && this._dateRows.length)
+                for (var i in this._dateRows)
+                    if (this._dateEqualsTo(this._dateRows[i].data("date") , dt))
+                        this._dateRows[i].click()
+        }
+    },
     setPos: function (node, posObject) {
         this._positionThisNodePlease(node, posObject)
     },
@@ -1449,7 +1460,7 @@ try{
     $(document).ready(function () {
         initializeBitCal();
     });
-    
+
 }catch(e){
     if(module)
         module.exports=BeatPicker.prototype;

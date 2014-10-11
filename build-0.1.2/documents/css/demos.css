@@ -1,0 +1,184 @@
+
+body {
+    background-color: #F9F9F9;
+    overflow-x: hidden;
+}
+body, html {
+    min-height: 100%;
+}
+
+.introduction {
+    color: #7a7070;
+    font: 16px/1.5 Verdana,tahoma,sans-serif;
+    margin: 14px;
+    padding: 7px;
+}
+.introduction h4 {
+    font-size: 42px;
+    color: #8D8A8A;
+    font-weight: bold;
+}
+
+.introduction b {
+    color: #6d6362;
+    font-size: 20px;
+}
+
+.demo-header {
+    padding: 5px;
+    width: 100%;
+    background-color: #FFF;
+    border-bottom: 5px solid #F2F2F2;
+}
+.demo-header .logo img{
+    opacity: 0.6;
+    width: 195px;
+    margin: 5px;
+}
+
+
+.demo-header .sections {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.demo-header .sections .caption {
+    color: #fff;
+    font: 30px/4 Impact,Charcoal,sans-serif;
+    text-align: center;
+    background-color: #19768f;
+    border-bottom: 3px solid #2f2f2f;
+    cursor: pointer;
+    display: block;
+    height: 111px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 133px;
+}
+.demo-header .sections ul{
+    display: none;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.demo-header .sections:hover ul {
+    background-color: #19768f;
+    display: inline-block;
+    float: right;
+    height: 72px;
+    position: absolute;
+    right: 0;
+    top: 111px;
+    width: auto;
+    z-index: 9999;
+}
+
+
+
+.demo-header .sections .sector li {
+    display: inline-block;
+    float: right;
+    height: 71px;
+    margin: 0;
+    transition: background-color 0.1s linear 0s;
+    width: 133px;
+}
+
+.demo-header .sections .sector li:hover {
+    background-color: #4695ab;
+}
+
+.demo-header .sections .sector a {
+    color: #fff;
+    display: block;
+    font: 18px/4 Impact,Charcoal,sans-serif;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.demos {
+    height: 100%;
+    width: 100%;
+}
+
+.demo h1 {
+    color: #D2D2D2;
+    font-family: Monospace;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 1px 1px #FFFFFF;
+}
+input[type="text"] {
+    background-color: #FFFBFB;
+    border: 1px solid #BBBBBB;
+    margin: 2px;
+    padding: 5px;
+    width: 167px;
+}
+
+button:hover, input[type="button"]:hover {
+    background-color: #B53636;
+}
+button, input[type="button"] {
+    background-color: #D36161;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: bold 14px arial,serif;
+    margin: 3px;
+    padding: 4px;
+    width: 72px;
+}
+.demo {
+    background-color: #F9F9F9;
+    border-bottom: 3px dashed #EBEBEB;
+    color: #5C5C5C;
+    font-family: Microsoft Sans Serif;
+    padding: 20px;
+    position: relative;
+    width: auto;
+}
+.demo:hover {
+    background-color: #F8F8F8;
+}
+.demo:hover h1{
+    color: #909090;
+}
+.demo:hover:after {
+    border-left: 6px solid #CB5959;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.sample {
+    z-index: 1;
+    margin: 7px;
+    position: relative;
+}
+
+.sample > span {
+    color: #7B7B7B;
+    font: bold 13px arial,serif;
+}
+.sample > span b {
+    color: #B33D3D;
+    display: block;
+    padding: 7px;
+    text-align: justify;
+    text-shadow: 1px 1px 0 #F9F9F9;
+    text-transform: uppercase;
+    width: 438px;
+}
+.demos .input-container {
+    position: relative;
+    z-index: 2;
+}
