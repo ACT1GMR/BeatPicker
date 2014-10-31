@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BeatPicker Live Demo</title>
+    <link rel="stylesheet" href="documents/css/reset.css"/>
+    <link rel="stylesheet" href="css/BeatPicker.min.css"/>
+    <link rel="stylesheet" href="documents/css/demos.css"/>
+    <link rel="stylesheet" href="documents/css/prism.css"/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/BeatPicker.min.js"></script>
+    <script src="documents/js/prism.js"></script>
+
+</head>
+<body>
+<div class="demo-header">
+    <div class="logo">
+        <img src="documents/css/images/beatPicker.png">
+    </div>
+    <div class="sections">
+        <span class="caption">Sections</span>
+        <ul class="sector">
+            <li><a href="#simple">Simple</a></li>
+            <li><a href="#pos">Position</a></li>
+            <li><a href="#date-format">Formatting</a></li>
+            <li><a href="#disabling-rule">Date disabling</a></li>
+            <li><a href="#range">Range</a></li>
+            <li><a href="#disable-module">Module disabling</a></li>
+            <li><a href="#objective-option">Objective option</a></li>
+            <li><a href="#global-reference">Global instance</a></li>
+            <li><a href="#event-handling">Events</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="introduction">
+    <h4>Introduction:</h4>
+    Many thanx to using BeatPicker.here you can see functionality of BeatPicker in declrative syntax mode.
+    You can read full docs and options available of beat picker <a href="docs.html">here</a>.Download latest version <a href="https://github.com/ACT1GMR/BeatPicker/zipball/0.1.3">here</a><br>
+    <b>Browsers support and infos <a href="/BeatPicker">here</a></b>
+</div>
+<div class="demos">
+
+<div id="simple" class="demo">
+    <h1>Simple</h1>
+    <div class="sample">
+        <span>simple initial</span>
+        <input type="text" data-beatpicker="true"/>
+		<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true"/>
+</code>
+</pre>
+    </div>
+</div>
+<div id="pos" class="demo">
+    <h1>Position</h1>
+
+    <div class="sample">
+        <span>right bottom</span>
+        <input type="text" data-beatpicker="true" data-beatpicker-position="['right','bottom']">
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['right','bottom']">
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>right auto</span>
+        <input type="text" data-beatpicker="true" data-beatpicker-position="['right','*']">
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['right','*']">
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>right top</span>
+        <input type="text" data-beatpicker="true" data-beatpicker-position="['right','top']">
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['right','top']">
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>auto position</span>
+        <input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']">
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']">
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>custom position realtive to input top left corner</span>
+        <input type="text" data-beatpicker="true" data-beatpicker-position="[10,50]">
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="[10,50]">
+</code>
+</pre>
+    </div>
+
+</div>
+
+<div id="date-format" class="demo">
+    <h1>Date formatting</h1>
+
+    <div class="sample">
+        <span>simple format</span>
+        <input type="text" data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-format="['YYYY','MM','DD']"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-format="['YYYY','MM','DD']"/>
+</code>
+</pre>
+    </div>
+	<br>
+    <br>
+    <div class="sample">
+        <span>simple format and custom separator</span>
+        <input type="text" data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-format="['YYYY','MM','DD'],separator:'/'"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-format="['YYYY','MM','DD'],separator:'/'" />
+</code>
+</pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>custom format with custom separator</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-format="['DD','MM','YYYY'],separator:'/'"
+                />
+				<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['right','*']" data-beatpicker-format="['DD','MM','YYYY'],separator:'/'"/>
+</code>
+</pre>
+    </div>
+</div>
+
+<div id="disabling-rule" class="demo">
+    <h1>Disabling dates</h1>
+
+    <div class="sample">
+        <span>from date to date disable</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,1],to:[2014,3,1]}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,1],to:[2014,3,1]}"/>
+</code>
+</pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>disable any dates after 1 january of 2014</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,1],to:'>'}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,1],to:'>'}"/>
+</code>
+</pre>
+
+    </div>
+	<br>
+    <br>
+    <div class="sample">
+        <span>disable any dates before 1 january of 2014</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,1],to:'<'}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,1],to:'<'}"/>
+</code>
+</pre>
+    </div>
+	<br>
+    <br>
+    <div class="sample">
+        <span>disable february of 2014</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,1],to:[2014 , 2 , '*']}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,1],to:[2014 , 2 , '*']}"/>
+</code>
+</pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>disable 2nd month of any years from 1 january of 2014</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,1],to:['*' , 2 , '*']}"
+                />
+    </div>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,1],to:['*' , '2' , '*']}"/>
+</code>
+</pre>
+	<br>
+    <br>
+    <div class="sample">
+        <span>disable 2nd day of 2nd month of any year from 1 january of 2014</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,1],to:['*' , '2' , '2']}"
+                />
+				<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,1],to:['*' , '2' , '2']}"/>
+</code>
+</pre>
+    </div>
+
+
+	<br>
+    <br>
+    <div class="sample">
+        <span>disable any date of 2014 after 6 january of 2014</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014,1,6],to:['2014' , '*' , '*']}"
+                />
+				<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014,1,6],to:['2014' , '*' , '*']}"/>
+</code>
+</pre>
+    </div>
+	
+    <br>
+    <br>
+    <div class="sample">
+        <span>disable 2nd month of any year from any date</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:'*',to:['*' , '2' , '*']}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:'*',to:['*' , '2' , '*']}"/>
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>disable 2nd day of any month of any year from any date</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:'*',to:['*' , '*' , 2]}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:'*',to:['*' , '*' , 2]}"/>
+</code>
+</pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>disable 2nd day of 2nd month of any year from any date</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:'*',to:['*' , 2 , 2]}"
+                />
+				<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:'*',to:['*' , 2 , 2]}"/>
+</code>
+</pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>multiple disable rules <b>note that first to last rule have high priority</b></span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}"
+                />
+				<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}"/>
+</code>
+</pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>disable all dates</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from:'*',to:'*'}"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from:'*',to:'*'}"/>
+</code>
+ </pre>
+    </div>
+</div>
+
+<div id="range" class="demo">
+    <h1>Range</h1>
+
+    <div class="sample">
+        <span>simple</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-range="true"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-range="true">
+</code>
+    </pre>
+    </div>
+	    <br>
+    <br>
+    <div class="sample">
+        <span>simple but can select disable dates in range</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-disable="{from :[2014,3,16] , to:[2014,4,8]}"
+               data-beatpicker-range="true,true"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']" data-beatpicker-disable="{from :[2014,3,16] , to:[2014,4,8]}" data-beatpicker-range="true,true">
+</code>
+    </pre>
+    </div>
+</div>
+
+<div id="disable-module" class="demo">
+    <h1>Disable module</h1>
+
+    <div class="sample">
+        <span>Disable go to date</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-module="gotoDate"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']"  data-beatpicker-module="gotoDate"/>
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>Disable clear button and today button</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-module="today,clear"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']"  data-beatpicker-module="today,clear" />
+</code>
+</pre>
+    </div>
+    <br>
+    <br>
+    <div class="sample">
+        <span>Disable header and footer </span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-module="header,footer"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']"  data-beatpicker-module="header,footer" />
+</code>
+</pre>
+    </div>
+
+    <br>
+    <br>
+    <div class="sample">
+        <span>Disable icon </span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-module="icon"
+                />
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']"  data-beatpicker-module="icon" />
+</code>
+</pre>
+    </div>
+
+</div>
+
+<div id="objective-option" class="demo">
+    <h1>Data structure options object</h1>
+
+    <div class="sample">
+        <span>Define a global object and assign it to input like this</span>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-extra="customOptions"
+                />
+        <script type="text/javascript">
+            customOptions = {
+                view : {
+                    alwaysVisible:true
+                },
+                labels: {
+                    today: "Tod",
+                    gotoDateInput: "Insert your date",
+                    gotoDateButton: "Set",
+                    clearButton: "Wipe"
+                }
+            }
+        </script>
+        <div style="margin-top: 280px">
+<span class="type">Markup:</span>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-extra="customOptions"/>
+</code>
+</pre>
+<span class="type">Javascript:</span>
+<pre class="code-prev">
+<code class="language-javascript">
+customOptions = {
+    view : {
+        alwaysVisible:true
+    },
+    labels: {
+        today: "Tod",
+        gotoDateInput: "Insert your date",
+        gotoDateButton: "Set",
+        clearButton: "Wipe"
+    }
+}
+</code>
+</pre>
+    </div>
+</div>
+</div>
+<div id="global-reference" class="demo">
+    <h1>Access to date picker object</h1>
+    <div class="sample">
+
+        <span>Define an id to get instantiated date picker</span>
+        <div>
+            <button class="show-picker">Show</button>
+            <button class="hide-picker">Hide</button>
+        </div>
+        <input type="text" data-beatpicker="true" data-beatpicker-id="myPicker"/>
+        <script>
+            $('.show-picker').click(function(e){
+                e.stopPropagation();
+                myPicker.show();
+            });
+            $('.hide-picker').click(function(e){
+                e.stopPropagation();
+                myPicker.hide();
+            })
+        </script>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-id="myPicker"/>
+</code>
+</pre>
+<span>Buttons markup</span>
+ <pre class="code-prev">
+<code class="language-markup">
+&lt;button class="show-picker"&gt;Show&lt;/button&gt;
+&lt;button class="hide-picker"&gt;hide&lt;/button&gt;
+</code>
+</pre>
+<span>Buttons markup</span>
+ <pre class="code-prev">
+<code class="language-javascript">
+$('.show-picker').click(function(e){
+    e.stopPropagation();
+    myPicker.show();
+});
+$('.hide-picker').click(function(e){
+    e.stopPropagation();
+    myPicker.hide();
+})
+</code>
+</pre>
+</div>
+</div>
+<div id="event-handling" class="demo">
+    <h1>Event handling</h1>
+
+    <div class="sample">
+        <span>Handling event and show correspond status</span>
+        <div class="status-box"></div>
+        <input type="text"
+               data-beatpicker="true"
+               data-beatpicker-position="['*','*']"
+               data-beatpicker-id="myDatePicker"
+                />
+        <style>
+            .status-box {
+                background-color: rgb(214, 109, 88);
+                color: rgb(241, 241, 241);
+                font: bold 10px tahoma,sans-serif;
+                height: auto;
+                margin: 2px;
+                padding: 5px;
+                width: 247px;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var statusGenerator = function (text) {
+                    var statusElem = $(".status-box");
+                    var child = $("<span style='display: block'></span>").text(text);
+                    statusElem.append(child);
+                };
+                myDatePicker.on("select", function (data) {
+                    statusGenerator(data.string + " selected")
+                });
+                myDatePicker.on("change", function (data) {
+                    statusGenerator("Date picker changed current date: "+data.string);
+                });
+                myDatePicker.on("show", function () {
+                    statusGenerator("Date picker show")
+                });
+                myDatePicker.on("clear", function (data) {
+                    statusGenerator("Date picker cleared. cleared date: " + data.string)
+                });
+                myDatePicker.on("hide", function () {
+                    statusGenerator("Date picker hide")
+                });
+            })
+
+        </script>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']"  data-beatpicker-id="myDatePicker"/>
+</code>
+</pre>
+<span>
+status box markup
+</span>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;div class="status-box">&lt;/div>
+</code>
+</pre>
+<span>
+status box javascript
+</span>
+<pre class="code-prev">
+<code class="language-javascript">
+$(document).ready(function(){
+
+    var statusGenerator = function (text) {
+        var statusElem = $(".status");
+        var child = $("&lt;span>&lt;/span>").text(text);
+        statusElem.append(child);
+    };
+
+    myDatePicker.on("select", function (data) {
+        statusGenerator(data.string + " selected")
+    });
+
+    myDatePicker.on("change", function (data) {
+        statusGenerator("Date picker changed current date: "+data.string);
+    });
+
+    myDatePicker.on("show", function () {
+        statusGenerator("Date picker show")
+    });
+
+    myDatePicker.on("clear", function (data) {
+        statusGenerator("Date picker cleared. cleared date: " + data.string)
+    });
+
+    myDatePicker.on("hide", function () {
+        statusGenerator("Date picker hide")
+    });
+})
+</code>
+</pre>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
