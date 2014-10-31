@@ -1334,13 +1334,16 @@ BeatPicker.prototype = {
     },
     selectRangeOfDate: function (start, end) {
         this.reset();
-        this._isFromDateOpened = true;
-        this._isToDateOpened = false;
-        this.selectDate(start);
-        this._isFromDateOpened = false;
-        this._isToDateOpened = true;
-        this.selectDate(end);
-        this.hide();
+        var rule = this._interpretRule(start, end);
+        if (this._isBiggerThan(this._currentDateExpose(end), rule , true)) {
+            this._isFromDateOpened = true;
+            this._isToDateOpened = false;
+            this.selectDate(start);
+            this._isFromDateOpened = false;
+            this._isToDateOpened = true;
+            this.selectDate(end);
+            this.hide();
+        }
     },
     setPos: function (node, posObject) {
         this._positionThisNodePlease(node, posObject)
