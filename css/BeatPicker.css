@@ -1,4 +1,8 @@
 .beatpicker {
+    -moz-box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important;
+    -o-box-sizing: content-box !important;
+    box-sizing: content-box !important;
     box-shadow: 0 3px 2px rgb(238, 238, 238);
     -moz-box-shadow: 0 3px 2px rgb(238, 238, 238);
     -o-box-shadow: 0 3px 2px rgb(238, 238, 238);

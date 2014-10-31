@@ -232,7 +232,7 @@ BeatPicker.prototype = {
     },
     _createClear: function () {
         var self = this;
-        var elem = this._domGenerator("button", {class: this._addClass(this.className.clear, this.className._inner.clearButton, this.className._inner.defaultButton)}, null, this.labels.clearButton);
+        var elem = this._domGenerator("button", {class: this._addClass(this.className.clear, this.className._inner.clearButton, this.className._inner.defaultButton) , type:"button"}, null, this.labels.clearButton);
         elem.on("click", function () {
             if (self._selectedDate || self._startRangeSelectedDate || self._endRangeSelectedDate) {
                 var options = {timeStamp: new Date().getTime()};
@@ -595,7 +595,7 @@ BeatPicker.prototype = {
     //**********************************************//
     //**********************************************//
     _dateSelect: function (e) {
-        var elem = $(e.originalEvent.currentTarget);
+        var elem = $(e.currentTarget || e.originalEvent.currentTarget);
         var dateObj = elem.data("date");
         var date = this._dateFormatting(dateObj);
         var optionToNotify = {};
@@ -1321,6 +1321,27 @@ BeatPicker.prototype = {
         if (!isNaN(Date.parse(date)))
             this._updateDateMatricesExactDate(this._isDate(date) ? date : new Date(Date.parse(date)))
     },
+    selectDate: function (date) {
+
+        if (!isNaN(Date.parse(date))) {
+            var dt = this._isDate(date) ? date : new Date(Date.parse(date));
+            this._updateDateMatricesExactDate(dt , null , true);
+            if (this._dateRows && this._dateRows.length)
+                for (var i in this._dateRows)
+                    if (this._dateEqualsTo(this._dateRows[i].data("date") , dt))
+                        return this._dateRows[i].click();
+        }
+    },
+    selectRangeOfDate: function (start, end) {
+        this.reset();
+        this._isFromDateOpened = true;
+        this._isToDateOpened = false;
+        this.selectDate(start);
+        this._isFromDateOpened = false;
+        this._isToDateOpened = true;
+        this.selectDate(end);
+        this.hide();
+    },
     setPos: function (node, posObject) {
         this._positionThisNodePlease(node, posObject)
     },
@@ -1449,7 +1470,7 @@ try{
     $(document).ready(function () {
         initializeBitCal();
     });
-    
+
 }catch(e){
     if(module)
         module.exports=BeatPicker.prototype;
