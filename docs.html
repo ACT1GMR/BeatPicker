@@ -24,7 +24,7 @@
 
     <div class="description">
         <h3>Thanks to use BeatPicker</h3>
-        <p>You can see online demos <a href="demos.html">here</a>.Download latest version <a href="https://github.com/ACT1GMR/BeatPicker/zipball/0.1.0">here</a>.<b>Browsers support and infos <a href="/BeatPicker">here</a></b></p>
+        <p>You can see online demos <a href="demos.html">here</a>.Download latest version <a href="https://github.com/ACT1GMR/BeatPicker/zipball/0.1.3">here</a>.<b>Browsers support and infos <a href="/BeatPicker">here</a></b></p>
 
         <div class="dependencies">
             <p>Dependencies:</p>
@@ -783,6 +783,31 @@ myDatePicker.on("select", function (data) {
         Also any Date object is acceptable as argument.
     </div>
 
+    <div class="methodsSEPselectDate">
+        <b class="arguments">Mixed</b>
+        <span>String | Date object</span>
+        <b class="return">Undefined</b><br/>
+        Select a date of date picker programmatically.<br>
+        Format:<br>
+        Any date string that Date.parse will accept.using this reference to see ISOs <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Date.parse()</a>.<br>
+        Also any Date object is acceptable as argument.
+    </div>
+
+    <div class="methodsSEPselectRangeOfDate">
+        <b class="arguments">Mixed</b>
+        <span>String | Date object</span>
+        ,
+        <b>Mixed</b>
+        <span>String | Date object</span>
+        <b class="return">Undefined</b><br/>
+        Select range of date from start to end programmatically.<br>
+        Format:<br>
+        Any date string that Date.parse will accept.using this reference to see ISOs <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Date.parse()</a>.<br>
+        Also any Date object is acceptable as argument.
+    </div>
+
     <div class="methodsSEPsetPos">
         <b class="arguments">Mutli and Mixed</b>
         <span>(HTML element , Object)</span>
@@ -795,13 +820,13 @@ myDatePicker.on("select", function (data) {
     <div class="methodsSEPshow">
         <b class="arguments">None</b>
         <b class="return">Undefined</b><br/>
-        Show date picker problematically.
+        Show date picker programmatically.
     </div>
 
     <div class="methodsSEPhide">
         <b class="arguments">None</b>
         <b class="return">Undefined</b><br/>
-        Hide date picker problematically.
+        Hide date picker programmatically.
     </div>
 
     <div class="methodsSEPtoday">
