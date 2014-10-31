@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BeatPicker docs</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="documents/js/BeatPicker.def.min.js"></script>
+    <script src="documents/js/TableOfContents.min.js"></script>
+    <link rel="stylesheet" href="documents/css/prism.css"/>
+    <link rel="stylesheet" href="documents/css/docs.css"/>
+    <script src="documents/js/prism.js"></script>
+
+</head>
+<body>
+<div class="docs-container">
+    <div class="docs">
+    </div>
+    <div class="contents">
+    </div>
+</div>
+<div class="bump">
+
+<div class="index">
+    <img class="logo" src="documents/css/images/beatPicker.png"/><br/>
+
+    <div class="description">
+        <h3>Thanks to use BeatPicker</h3>
+        <p>You can see online demos <a href="demos.html">here</a>.Download latest version <a href="https://github.com/ACT1GMR/BeatPicker/zipball/0.1.3">here</a>.<b>Browsers support and infos <a href="/BeatPicker">here</a></b></p>
+
+        <div class="dependencies">
+            <p>Dependencies:</p>
+            <ul>
+                <li>jQuery 1.8.x.js+</li>
+                <li>BeatPicker.js</li>
+                <li>BeatPicker.css</li>
+            </ul>
+        </div>
+
+        <div class="simple-initial">
+            <p>How to use BeatPicker</p>
+            <div class="first">
+                <p>first include:</p>
+                <pre class="code-prev">
+<code class="language-markup">
+&lt;link rel="stylesheet" href="css/BeatPicker.css"/>
+&lt;script src="js/jquery-2.1.0.min.js"&gt;&lt;/script>
+&lt;script src="js/BeatPicker.js"&gt;&lt;/script>
+</code>
+</pre>
+            </div>
+            <div class="options-type">
+                You have two options to create BeatPicker:<br/>
+                <ul>
+                Declarative syntax using data api:
+                <p class="read-more">Read more about declarative syntax <a href="#declarative">here</a></p>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true">
+</code>
+</pre>
+
+
+                Programmatically syntax using new operator:
+<pre class="code-prev">
+<code class="language-javascript">
+var options = {dateInputNode:$(".my-input")}
+var instance = new BeatPicker(options)
+</code>
+</pre>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="declarative">
+    <p>You can use declarative syntax to get rid of coding javascript to initiate your picker all of options available for declrative syntax list below: </p>
+<div class="declarative-box instance">
+    <h2 class="title">Get instance of date picker:</h2>
+    if you define an id for your date picker this id will bind to global window object and you can access your picker if not BeatPicker will allocate an unique id for instantiated date pickers
+    and add an attribute to date input node to specify its id
+    <pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-id="myDatePicker"/>
+</code>
+</pre>
+    now you have a global reference to your picker using myDatePicker
+</div>
+
+    <div class="declarative-box position">
+        <h2 class="title">Position:</h2>
+        You can apply <a href="#options/view/position">position options</a> using this format.
+
+    <pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['right','bottom']">
+</code>
+</pre>
+    </div>
+
+    <div class="declarative-box position">
+        <h2 class="title">Disabling rule:</h2>
+        You can apply <a href="#options/disablingRules">disabling rules</a> using this format.multiple rule using comma separated object pass.
+
+    <pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-disable="{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}">
+</code>
+</pre>
+    </div>
+
+    <div class="declarative-box position">
+        <h2 class="title">Range:</h2>
+        To enable range mode you just have to pass a true to 'data-beatpicker-range' if you want <a href="#options/selectionRule/rangeDisableSelect">range disable selection to available</a> using comma and pass another true
+    <pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-range="true,true">
+</code>
+</pre>
+    </div>
+
+    <div class="declarative-box position">
+        <h2 class="title">Disabling rule:</h2>
+        You can apply <a href="#options/disablingRules">disabling rules</a> using this format.
+
+    <pre class="code-prev">
+<code class="language-markup">
+    &lt;input type="text" data-beatpicker="true" data-beatpicker-disable="{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}"]">
+</code>
+</pre>
+    </div>
+
+    <div class="declarative-box date-format">
+        <h2 class="title">Date Format:</h2>
+        You can apply <a href="#options/dateFormat">date format</a> using this format.comma separated properties:first format of your desire second your date separator.
+
+    <pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-format="['YYYY','MM','DD'],separator:'/'" />
+</code>
+</pre>
+    </div>
+
+    <div class="declarative-box disable-module">
+        <h2 class="title">Disabling module:</h2>
+        You can disable module listed <a href="#options/modules">here</a> using comma separated props.everything you mentioned in this data api will be disable.
+
+    <pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-module="today,clear" />
+</code>
+</pre>
+    </div>
+
+
+    <div class="declarative-box disable-module">
+        <h2 class="title">Objective options</h2>
+        After all if you need any options that is not available in declarative syntax you can create a global object and pass it to BeatPicker like this.
+        <p>Javascript</p>
+
+<pre class="code-prev">
+<code class="language-javascript">
+customOptions = {
+    labels: {
+       today: "Tod",
+       gotoDateInput: "Insert your date",
+       gotoDateButton: "Set",
+       clearButton: "Wipe"
+    }
+}
+</code>
+</pre>
+ <p>Markup</p>
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-position="['*','*']"  data-beatpicker-extra="customOptions"/>
+</code>
+</pre>
+    </div>
+</div>
+    <div class="options">
+        Options in BeatPicker categorized and decoupled from main stream for related topics like :'view,selectionRule,modules,...'<br>
+        You can create an object that represent your options and pass it to BeatPicker constructor first argument.like:
+<pre class="code-prev">
+<code class="language-javascript">
+var options = {
+    view : {
+        position:['*','*']
+    },
+
+    disablingRule : [ {from:[2014,1,1] , to :[2014,2,2]} , {from:'*' , to :['*',2,'*']} ]
+    }
+
+var myInstance = new BeatPicker(options);
+</code>
+</pre>
+
+    </div>
+
+    <div class="optionsSEPdateInputNode">
+        <b class="type">Mixed</b>
+        <span>HTML element</span>|<span>jQuery object</span>
+        <b class="default">Null</b><br/>
+        Date input html element to binding date picker on it.
+    </div>
+
+    <div class="optionsSEPpickerNode">
+        <b class="type">Array</b>
+        <span>jQuery object</span>
+        <b class="default">Null</b><br/>
+        When date picker getting initiated this property is a reference to jQuery object of beatpicker main html node.
+    </div>
+
+    <div class="optionsSEPdaysSimple">
+        <b class="type">Array</b>
+        <span>Primitive array</span>
+        <b class="default">["Su" , "Mo" , "Tu" , "We" , "Th" , "Fr" , "Sa"]</b><br/>
+        Brief days of the week alias using in date picker.
+    </div>
+
+    <div class="optionsSEPdaysFull">
+        <b class="type">Array</b>
+        <span>Primitive array</span>
+        <b class="default">[]</b><br/>
+        Full days of the week alias using in date picker.
+    </div>
+
+    <div class="optionsSEPmonthsSimple">
+        <b class="type">Array</b>
+        <span>Primitive array</span>
+        <b class="default">["Jan" , "Feb" , "Mar" , "Apr" , "May" , "Jun" , "Jul" , "Aug" , "Sep" , "Oct" , "Nov" ,
+            "Dec"]</b><br/>
+        Brief months of the year alias using in date picker.
+    </div>
+
+    <div class="optionsSEPmonthsFull">
+        <b class="type">Array</b>
+        <span>Primitive array</span>
+        <b class="default">["January", "February", "March", "April", "May", "June", "July", "August", "September",
+            "October", "November", "December"]</b><br/>
+        Full months of the year alias using in date picker.
+    </div>
+
+    <div class="optionsSEPstartDate">
+        <b class="type">Mixed</b>
+        <span>Array</span>|<span>String</span>|<span>Object</span>
+        <b class="default">Now system time base local GMT</b>
+        <ul class="details">
+            <li><span>Array:</span>Simple array like : [2014 , 12 , 30]</li>
+            <li><span>String:</span>Simple array like : [2014 , 12 , 30]</li>
+            <li><span>Object:</span>Correspond javascript Date object</li>
+        </ul>
+    </div>
+
+    <div class="optionsSEPcurrentDate">
+        <b class="type">Object</b>
+        <span>Date Object</span>
+        <b class="default">Exactly equal to startDate</b><br/>
+        All of date changing in date picker is based on this property and it represent current state of date in
+        date picker.
+        Every time you seek around date picker and change date this property will set to correspond date.
+    </div>
+
+    <div class="optionsSEPdateFormat">
+        <b class="type">Object</b>
+        <span>BeatPicker Object</span>
+        <b class="default"><br/>
+<pre class="code-prev">
+<code class="language-javascript">
+{
+    separator: "-",
+    format: ["YYYY" , "MM" , "DD"]
+}
+</code>
+</pre>
+        </b>
+       Date formatting object all formatting is base on this object
+    </div>
+
+    <div class="optionsSEPdateFormatSEPseparator">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default"> - </b><br/>
+        A string that separate date format you can use any separator that you feel its satisfy your needs like : - , / , SEP , ...
+    </div>
+
+    <div class="optionsSEPdateFormatSEPformat">
+        <b class="type">Array</b>
+        <span>Primitive array</span>
+        <b class="default">["YYYY" , "MM" , "DD"]</b><br/>
+        An array that input date will format base on that.
+        <span>Options</span>
+        You can use different formatting below:
+        <ul class="options">
+<pre class="code-prev">
+<code class="language-javascript">
+["DD" , "MM" , "YYYY"]
+["MM" , "DD" , "YYYY"]
+["DD" , "NM" , "YYYY"]
+["YYYY" , "MM" , "DD"]
+</code>
+</pre>
+</ul>
+    </div>
+
+    <div class="optionsSEPmodules">
+        <b class="type">Object</b>
+        <span>BeatPicker object</span>
+        <b class="default"><br/>
+<pre class="code-prev">
+<code class="language-javascript">
+modules: {
+    header: true,
+    footer: true,
+    daysOfTheWeek: true,
+    navBar: true,
+    today: true,
+    gotoDate: true,
+    icon: true,
+    clear: true
+}
+</code>
+</pre>
+        </b>
+        An object that define enable modules using in date picker.
+    </div>
+
+    <div class="optionsSEPmodulesSEPheader">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Header module of date picker it wrap navBar module also then when you disable this you have to expect,navBar module will getting disabled too
+    </div>
+
+    <div class="optionsSEPmodulesSEPfooter">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Footer module of date picker it wrap gotoDate and today module also then when you disable this you have to expect,gotoDate and today will getting disabled too
+    </div>
+
+    <div class="optionsSEPmodulesSEPdaysOfTheWeek">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        A module that represent alias of days in a week.
+    </div>
+
+    <div class="optionsSEPmodulesSEPnavBar">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Date picker take advantage of navbar to change current date and switch to other unity like : days,months,years.
+        when you change date using navbar components it aware you with 'change' event if you registered on it.also it
+        set currentDate property to current changed date
+    </div>
+
+    <div class="optionsSEPmodulesSEPtoday">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        A button that go to current date of system.
+    </div>
+
+    <div class="optionsSEPmodulesSEPgotoDate">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        A module that take string input and change the currentDate in following rules:
+        <ul class="details">
+            <li><span>Only year inserted(eg:1999,2001,201,1,...):</span>view of date picker will change to 'years' mode.date will set to inserted year.date picker will update with years view</li>
+            <li><span>Only year and month inserted(eg:1999/2,2001/5,201/1,1/9,...):</span>view of date picker will change to 'months' mode.date will set to inserted year and month.date picker will update with months view</li>
+            <li><span>year,month and day inserted (eg:1999/3/1,2001/6/27,201/4/2,1/1/1,...):</span>view of date picker will change to 'days' mode.date will set to inserted year , month and days.date picker will update with days view</li>
+        </ul>
+    </div>
+
+    <div class="optionsSEPmodulesSEPicon">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Icon inside date inputs.
+    </div>
+
+    <div class="optionsSEPmodulesSEPclear">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Clear selected date both in range and single mode also fire 'clear' event.
+    </div>
+
+    <div class="optionsSEPselectionRule">
+        <b class="type">Object</b>
+        <span>BeatPicker object</span>
+        <b class="default"><br/>
+<pre class="code-prev">
+<code class="language-javascript">
+selectionRule: {
+    single: true,
+    range: false,
+    rangeDisableSelect: false
+}
+</code>
+</pre>
+        </b>
+        An object that define a selection rule switch between single and range mode.
+    </div>
+
+    <div class="optionsSEPselectionRuleSEPsingle">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Initiate BeatPicker in single date input mode it has inverse relation with range property.
+    </div>
+
+    <div class="optionsSEPselectionRuleSEPrange">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Initiate BeatPicker in rang date input mode it has inverse relation with single property.
+        If this property set to 'true' another input will generate and append across default input to represent from date input.
+    </div>
+
+    <div class="optionsSEPselectionRuleSEPrangeDisableSelect">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">false</b><br/>
+        By default if you want select between some range and on that range you defined a disable rule that make at least one date to getting disable
+        this range cannot be apply to input eg:
+        <p class="example">
+            Assume : from : 2014-01-02 , to:2014-01-04 is disable<br>
+            from:2014-01-01 , to:2014-01-07
+            is invalid range because of applied disabling rule.you can override this behaviour by set this field to true.
+        </p>
+    </div>
+
+    <div class="optionsSEPview">
+        <b class="type">Object</b>
+        <span>BeatPicker object</span>
+        <b class="default">
+<pre class="code-prev">
+<code class="language-javascript">
+view: {
+    display: "days",
+    alwaysVisible: false,
+    position: ["bottom" , "left"],
+    showOn: "click",
+    hideOn: "click",
+    isInputIsReadonly: true,
+    iconImage: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANAA0DASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgQF/8QAIxAAAQQBBAIDAQAAAAAAAAAAAQIDBBEFABIhQQYxExQiUf/EABQBAQAAAAAAAAAAAAAAAAAAAAX/xAAbEQACAgMBAAAAAAAAAAAAAAABIQAEFUFhMf/aAAwDAQACEQMRAD8Af5PxCZHiwYeRzUBuMwHPqoU0sJRdqXzVXwa9cCheqT4dl8zj4RXm4smIy3sjflwbU3yOe+K6raB1p/k8VFyTjJl/MoNhaQhLhSk7hRsD2a761lePSnV4dCo+1ptLzraUrtZoKuyomySSST/TpHK2EwuDfsOxddovp1P/2Q=="
+}
+</code>
+</pre>
+        </b><br/>
+        Using this object to control view of date picker.
+    </div>
+
+    <div class="optionsSEPviewSEPdisplay">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">"days"</b>
+        By default first view of date picker set to days.you can change this behaviour using following options:
+        <p>Options</p>
+        <ul class="options">
+            <li>days</li>
+            <li>months</li>
+            <li>years</li>
+        </ul>
+    </div>
+
+    <div class="optionsSEPviewSEPalwaysVisible">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">false</b><br/>
+        Showing date picker always or not
+    </div>
+
+    <div class="optionsSEPviewSEPposition">
+        <b class="type">Array</b>
+        <span>String | Integer</span>
+        <b class="default">["bottom" , "left"]</b><br/>
+        Position date picker relative to date input.you can use following options to position as your desire:
+        <p>Options:</p>
+        <b class="note">Note:'*' means auto</b>
+        <ul class="options">
+<pre class="code-prev">
+<code class="language-javascript">
+    ["top" , "left"]
+    ["top" , "middle"]
+    ["top" , "right"]
+    ["right" , "top"]
+    ["right" , "middle"]
+    ["right" , "bottom"]
+    ["bottom" , "right"]
+    ["bottom" , "middle"]
+    ["bottom" , "left"]
+    ["left" , "bottom"]
+    ["left" , "middle"]
+    ["left" , "top"]
+    ["top" , "*"]// * means auto
+    ["right" , "*"]
+    ["bottom" , "*"]
+    ["left" , "*"]
+    ["*" , "*"]//auto position
+    [Number , Number]//[x,y]relative to top left corner of the date input
+</code>
+</pre>
+ </ul>
+
+    </div>
+
+    <div class="optionsSEPviewSEPshowOn">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">'click'</b><br/>
+        Show date picker on this event.
+    </div>
+
+    <div class="optionsSEPviewSEPhideOn">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">'click'</b><br/>
+        hide date picker on this event of document.
+    </div>
+
+    <div class="optionsSEPviewSEPisInputIsReadonly">
+        <b class="type">Boolean</b>
+        <span>Primitive boolean</span>
+        <b class="default">true</b><br/>
+        Is date input have to be read only or note?
+    </div>
+
+    <div class="optionsSEPviewSEPiconImage">
+        <b class="type">String</b>
+        <span>Base64 encoded image data | Image src</span>
+        <b class="default"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANAA0DASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgQF/8QAIxAAAQQBBAIDAQAAAAAAAAAAAQIDBBEFABIhQQYxExQiUf/EABQBAQAAAAAAAAAAAAAAAAAAAAX/xAAbEQACAgMBAAAAAAAAAAAAAAABIQAEFUFhMf/aAAwDAQACEQMRAD8Af5PxCZHiwYeRzUBuMwHPqoU0sJRdqXzVXwa9cCheqT4dl8zj4RXm4smIy3sjflwbU3yOe+K6raB1p/k8VFyTjJl/MoNhaQhLhSk7hRsD2a761lePSnV4dCo+1ptLzraUrtZoKuyomySSST/TpHK2EwuDfsOxddovp1P/2Q=="/></b><br/>
+        pass a base64 encoded image data or src of image to insert your desire icon inside of date input
+    </div>
+
+
+    <div class="optionsSEPlabels">
+        <b class="type">Object</b>
+        <span>BeatPicker object</span>
+        <b class="default">
+<pre class="code-prev">
+<code class="language-javascript">
+labels: {
+    today: "Today",
+    gotoDateInput: "YYYY/MM/DD",
+    gotoDateButton: "GO",
+    clearButton: "Clear"
+}
+</code>
+</pre>
+        </b><br/>
+        Labels used around date picker.
+    </div>
+
+    <div class="optionsSEPlabelsSEPtoday">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">'Today'</b><br/>
+        Today button label.
+    </div>
+
+    <div class="optionsSEPlabelsSEPgotoDateInput">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">'YYYY/MM/DD'</b>
+        Placeholder of gotoDate module.
+    </div>
+
+    <div class="optionsSEPlabelsSEPgotoDateButton">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">'GO'</b><br/>
+        Button label of gotoDate module.
+    </div>
+
+    <div class="optionsSEPlabelsSEPclearButton">
+        <b class="type">String</b>
+        <span>Primitive string</span>
+        <b class="default">'Clear'</b><br/>
+        Clear button label
+    </div>
+
+    <div class="optionsSEPdisablingRules">
+        <b class="type">Array</b>
+        <span>Object</span>
+        <b class="default">[]</b><br/>
+        Useful option for disabling specific range.you can use following options to satisfy your needs (all option explained as example):
+    <p>Options:</p>
+    <b>Note: date format of array is : 'YYYY,MM,DD'</b>
+    <ul class="options">
+        <li>
+            <p>From date to date disable:</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:[2014,2,4]}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable any date after specific date:</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:'>'}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable any date before specific date:</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:'<'}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable any days of the specific month from specific date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:[2014,2,'*']}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable any days of specific month of any year from specific date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:['*',2,'*']}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable specific day of specific month of any year from specific date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:['*' , 2 , 2]}]
+</code>
+</pre>
+        </li>
+
+
+        <li>
+            <p>Disable any day of any month of specific year from specific date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:[2014 , '*' , '*']}]
+</code>
+</pre>
+        </li>
+
+
+        <li>
+            <p>Disable any day of any month of specific year from specific date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014,1,1],to:[2014 , '*' , '*']}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable any day of specific month of any year from any date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:'*',to:['*' , 2 , '*']}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable specific day of any month of any year from any date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:'*',to:['*' , '*' , 2]}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable specific day of any month of any year from any date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:'*',to:['*' , '*' , 2]}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Disable specific day of specific month of any year from any date</p>
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:'*',to:['*' , 2 , 2]}]
+</code>
+</pre>
+        </li>
+
+        <li>
+            <p>Multiple disabling rules</p>
+
+<pre class="code-prev">
+<code class="language-javascript">
+[{from:[2014 , 2 , 2],to:[2014 , 3 , 7]},{from:[2014 , 5 , 3],to:[2014 , 7 , 4]}]
+</code>
+</pre>
+            <p>Note that when you use this format you have to aware of disabling priority what that means is<br>
+                if you have a rule that interfere with another rule you have to know that first rule have high priority to apply here is an example:
+                Assume :  from:2014-01-01 , to : 2014-01-10 && from : 2014-01-05 , to : 2014-01-08 is your disabling rule<br>
+                what you have to expect is that your first rule (from : 2014-01-01 , to : 2014-01-10) have higher priority than second rule(from : 2014-01-05 , to : 2014-01-08)<br>
+                then you have disable date from : 2014-01-01 , to : 2014-01-10
+            </p>
+        </li>
+    </ul>
+ </div>
+
+<!--EVENTS-->
+    <div class="events">
+     Eventing in BeatPicker implemented as pub-sub messaging system.all things you have to do is<br>
+     first get appropriate instance of BeatPicker object then subscribe on a desired topic and gets notify when any news is out there here is simplest form example:
+<pre class="code-prev">
+<code class="language-markup">
+&lt;input type="text" data-beatpicker="true" data-beatpicker-id="myDatePicker"/>
+</code>
+</pre>
+<pre class="code-prev">
+<code class="language-javascript">
+myDatePicker.on("select", function (data) {
+   console.log(arguments);
+});
+</code>
+</pre>
+    </div>
+
+    <div class="eventsSEPselect">
+        <b class="callback-arguments">Object</b><br/>
+        This event will fire when a date selected both in range or single mode.<br>
+        if in range mode you will get specific callback object argument that have info about both from and to date selection.<br>
+        otherwise you will get simple selected date object in single mode.
+    </div>
+
+    <div class="eventsSEPchange">
+        <b class="callback-arguments">Object</b><br/>
+        Any change in date will notify client using this event.
+        Having currentDate in object argument of callback.
+    </div>
+
+    <div class="eventsSEPshow">
+        <b class="callback-arguments">NONE</b><br/>
+        Fire when date picker getting show.no arguments in callback.
+    </div>
+
+    <div class="eventsSEPhide">
+        <b class="callback-arguments">NONE</b><br/>
+        Fire when date picker getting show.no arguments in callback.
+    </div>
+
+    <div class="eventsSEPclear">
+        <b class="callback-arguments">Object</b><br/>
+        This event will fire when a date selected both in range or single mode.<br>
+        if in range mode you will get specific callback object argument that have info about both from and to date selection.<br>
+        otherwise you will get simple selected date object in single mode.
+    </div>
+    <!--METHODS-->
+    <div class="methodsSEPreset">
+        <b class="arguments">None</b>
+        <b class="return">Undefined</b><br/>
+        Reset selected date programmatically.
+    </div>
+
+    <div class="methodsSEPsetDate">
+        <b class="arguments">Mixed</b>
+        <span>String | Date object</span>
+        <b class="return">Undefined</b><br/>
+        Set currentDate of date picker programmatically.<br>
+        Format:<br>
+        Any date string that Date.parse will accept.using this reference to see ISOs <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Date.parse()</a>.<br>
+        Also any Date object is acceptable as argument.
+    </div>
+
+    <div class="methodsSEPselectDate">
+        <b class="arguments">Mixed</b>
+        <span>String | Date object</span>
+        <b class="return">Undefined</b><br/>
+        Select a date of date picker programmatically.<br>
+        Format:<br>
+        Any date string that Date.parse will accept.using this reference to see ISOs <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Date.parse()</a>.<br>
+        Also any Date object is acceptable as argument.
+    </div>
+
+    <div class="methodsSEPselectRangeOfDate">
+        <b class="arguments">Mixed</b>
+        <span>String | Date object</span>
+        ,
+        <b>Mixed</b>
+        <span>String | Date object</span>
+        <b class="return">Undefined</b><br/>
+        Select range of date from start to end programmatically.<br>
+        Format:<br>
+        Any date string that Date.parse will accept.using this reference to see ISOs <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Date.parse()</a>.<br>
+        Also any Date object is acceptable as argument.
+    </div>
+
+    <div class="methodsSEPsetPos">
+        <b class="arguments">Mutli and Mixed</b>
+        <span>(HTML element , Object)</span>
+        <b class="return">Undefined</b><br/>
+        Set beat picker position relative to specific custom selected element.<br>
+        Position object:<br>
+        You can use plain object like '{x:2 , y:3}' in px unit set you desired position relative to left corner of any element.
+    </div>
+
+    <div class="methodsSEPshow">
+        <b class="arguments">None</b>
+        <b class="return">Undefined</b><br/>
+        Show date picker programmatically.
+    </div>
+
+    <div class="methodsSEPhide">
+        <b class="arguments">None</b>
+        <b class="return">Undefined</b><br/>
+        Hide date picker programmatically.
+    </div>
+
+    <div class="methodsSEPtoday">
+        <b class="arguments">None</b>
+        <b class="return">Undefined</b><br/>
+        Will go today.
+    </div>
+
+    <div class="methodsSEPisHide">
+        <b class="arguments">None</b>
+        <b class="return">Boolean</b><br/>
+        Check if date picker is hide or not.
+    </div>
+
+    <div class="methodsSEPisDisable">
+        <b class="arguments">Mixed</b>
+        <span>(String | Date object)</span>
+        <b class="return">Boolean</b><br/>
+        Check if specific date match to your defined disabling rule or not.
+        Format:<br>
+        Any date string that Date.parse will accept.using this reference to see ISOs <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse">Date.parse()</a>.<br>
+        Also any Date object is acceptable as argument.
+    </div>
+
+
+
+    <div class="methodsSEPgetPickerNodes">
+        <b class="arguments">None</b>
+        <b class="return">Array</b>
+        Get array of jQuery objects.if in range mode second indice of array will be to input node.
+    </div>
+
+    <div class="methodsSEPgetSelectedStartDate">
+        <b class="arguments">None</b>
+        <b class="return">Null | Date object</b><br/>
+        In range mode you will get start date of the range using this method.
+    </div>
+
+    <div class="methodsSEPgetSelectedEndDate">
+        <b class="arguments">None</b>
+        <b class="return">Null | Date object</b><br/>
+        In range mode you will get end date of the range using this method.
+    </div>
+
+    <div class="methodsSEPgetSelectedDate">
+        <b class="arguments">None</b>
+        <b class="return">Null | Date object</b><br/>
+        In single mode you get selected date using this method.
+    </div>
+
+    <div class="methodsSEPgetCurrentDate">
+        <b class="arguments">None</b>
+        <b class="return">Date object</b>
+        Get current date of date picker.
+    </div>
+</div>
+<script src="documents/js/initial.min.js"></script>
+</body>
+</html>
