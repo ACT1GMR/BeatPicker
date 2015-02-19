@@ -357,7 +357,9 @@ BeatPicker.prototype = {
                     var clickBehaviour = $(this).data("click-behaviour");
                     var isDisabled = $(this).data("disabled");
                     !isDisabled && self._dateSelect(e);
-                    clickBehaviour !== "not-avail" && self._updateDateMatrices(clickBehaviour ? 1 : -1, self._monthUnit);
+                    if (!self._endRangeSelectedDate) {
+                      clickBehaviour !== "not-avail" && self._updateDateMatrices(clickBehaviour ? 1 : -1, self._monthUnit);
+                    }
                 });
                 li.text(dayCheck.day);
                 this.selectionRule.single && this._findSelectedDate(this._dateRows[i].data("date"), this._dateRows[i])
