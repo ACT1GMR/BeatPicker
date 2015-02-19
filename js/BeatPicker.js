@@ -357,7 +357,9 @@ BeatPicker.prototype = {
                     var clickBehaviour = $(this).data("click-behaviour");
                     var isDisabled = $(this).data("disabled");
                     !isDisabled && self._dateSelect(e);
-                    clickBehaviour !== "not-avail" && self._updateDateMatrices(clickBehaviour ? 1 : -1, self._monthUnit);
+                    if (!self._endRangeSelectedDate) {
+                      clickBehaviour !== "not-avail" && self._updateDateMatrices(clickBehaviour ? 1 : -1, self._monthUnit);
+                    }
                 });
                 li.text(dayCheck.day);
                 this.selectionRule.single && this._findSelectedDate(this._dateRows[i].data("date"), this._dateRows[i])
@@ -1078,7 +1080,19 @@ BeatPicker.prototype = {
     },
     _getDecisionOnEvents: function () {
         var self = this;
-        this.on(this.events.hide, function (data) {
+        if (this.selectionRule.range) {
+            this.on(this.events.show, function (e) {
+                if (!e || !self._dateInputToNode || !self._startRangeSelectedDate || !self._endRangeSelectedDate) {
+                    return;
+                }
+                if (e.currentTarget === self._dateInputToNode[0]) {
+                    self._updateDateMatricesExactDate(self._endRangeSelectedDate, true);
+                } else {
+                    self._updateDateMatricesExactDate(self._startRangeSelectedDate, true);
+                }
+            });
+        }
+        this.on(this.events.hide, function (e) {
             ( self._selectedDate || self._startRangeSelectedDate) && self._updateDateMatricesExactDate(self._selectedDate || self._startRangeSelectedDate, true);
             self._markToday(new Date());
         });
@@ -1285,13 +1299,13 @@ BeatPicker.prototype = {
     show: function (e) {
         this._calendarMainNode.css("display", "");
         this._isHide = false;
-        !this.view.alwaysVisible && this._notifySubscribers(this.events.show);
+        !this.view.alwaysVisible && this._notifySubscribers(this.events.show, e);
         this.selectionRule.range ? this._rangeStatesManager(e) : this._positionThisNodePlease(this.dateInputNode);
     },
-    hide: function () {
+    hide: function (e) {
         this._calendarMainNode.css("display", "none");
         this._isHide = true;
-        this._notifySubscribers(this.events.hide);
+        this._notifySubscribers(this.events.hide, e);
     },
     today: function () {
         this.currentDate = new Date();
